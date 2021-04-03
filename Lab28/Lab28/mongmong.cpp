@@ -7,15 +7,31 @@ using namespace std;
 int main() {
 	vector<string> teams;
 	map<string, string> members;
+	map<string, vector<string>> members2;
+
+	members2["banana"].push_back("joey");
+	members2["banana"].push_back("mint");
 
 	while (true) {
+		cout << teams.size() << endl;
 		for (auto i : teams) {
 			cout << i << endl;
 		}
 
+		cout << members.size() << endl;
 		for (auto [team, member] : members) {
 			cout << team << "   " << member << endl;
 		}
+
+		cout << endl;
+
+		for (auto [team, memberList] : members2) {
+			for (auto member : memberList) {
+				cout << team << "   " << member << endl;
+			}
+		}
+
+		cout << endl;
 
 		cout << "a. add team" << endl << 
 				"b. add member" << endl <<
@@ -26,7 +42,7 @@ int main() {
 		cin >> choice;
 
 		if (choice == 'a') {
-			cout << "team name: ";
+			cout << endl << "team name: ";
 			string teamName;
 			cin >> teamName;
 
@@ -38,7 +54,7 @@ int main() {
 			}
 
 			teams.push_back(teamName);
-			cout << "team [" << teamName << "] is added" << endl;
+			cout << "team [" << teamName << "] is added" << endl << endl;
 		}
 		else if (choice == 'b') {
 			cout << "team name: ";
